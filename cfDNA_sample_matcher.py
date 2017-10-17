@@ -78,7 +78,7 @@ merged_json_and_report = pd.merge(datalocations, report, how='inner', left_on='s
 json_with_genes_matched = merged_json_and_report.apply(check_sample_for_genes, axis=1)
 json_with_genes_matched_df = pd.DataFrame.from_items(zip(json_with_genes_matched.index, json_with_genes_matched.values)).T
 json_with_genes_matched_df.columns = ["participant_id", "sample_id", "lab_sample_id", "gene_match", "gene_matches"]
-print(json_with_genes_matched_df)
+
 # read list of patients with cfDNA samples supplied on Emma Walsh spreadsheet
 cfdnas = pd.read_csv(args.cfdnafile)
 cfdnas = cfdnas.applymap(str)
